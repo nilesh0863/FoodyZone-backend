@@ -11,6 +11,7 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cors_1.default)());
 app.use("/images", express_1.default.static(path_1.default.join(__dirname, "../public/images")));
+const PORT = process.env.PORT || 9000
 app.get("/", (req, res) => {
     console.log(path_1.default.join(__dirname, "../public"));
     const foodData = [
@@ -155,7 +156,7 @@ app.get("/", (req, res) => {
     ];
     res.json(foodData);
 });
-app.listen(9000, () => {
-    console.log("Server is running on port 9000");
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
 //# sourceMappingURL=index.js.map
